@@ -42,7 +42,7 @@ var WaffleChart = function() {
   // function generateLegend(d) {
   //   const myColors = d3.scaleOrdinal()
   //     .domain(["Asian/Pacific-Islander", "Black/African-American", "Hispanic/Latino", "White"])
-  //     .range(["#EDAE49", "#D1495B", "#00798C", "#424B54"]);
+  //     .range(["#a7c636", "#ed5151", "#ffde3e", "#149ece"]);
 
   //   const legendDiv = d3.select("ul#legend");
 
@@ -105,10 +105,10 @@ var WaffleChart = function() {
 
     const myColors = d3.scaleOrdinal()
       .domain(["Asian/Pacific-Islander", "Black/African-American", "Hispanic/Latino", "White"])
-      .range(["#EDAE49", "#D1495B", "#00798C", "#424B54"]);
+      .range(["#a7c636", "#ed5151", "#ffde3e", "#149ece"]);
     const tempColors = d3.scaleOrdinal()
       .domain(["Asian/Pacific-Islander", "Black/African-American", "Hispanic/Latino", "White"])
-      .range(["#ba8839", "#91323f", "#00515e", "#23282d"]);
+      .range(["#637620", "#882c0d", "#be9d00", "#0b5771"]);
 
     // add label
     // if (_obj.label) {
