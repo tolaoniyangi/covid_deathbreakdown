@@ -47,7 +47,6 @@
 
         function totalCount(dataset) {
             const totalDeaths = d3.sum(dataset.map(function(d){ return d.DEATH_COUNT}));
-            console.log(totalDeaths)
             d3.select("div#deathNum")
             .append("span")
             .attr("class", "deathCountText")
