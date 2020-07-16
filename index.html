@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+    <head>
+        <title> COVID Deaths </title>
+
+        <!-- Google fonts code -->
+        <link href="https://fonts.googleapis.com/css?family=Noto Serif|Merriweather" rel="stylesheet">
+
+        <!-- Load d3.js to read csv, charts.js to make chart, jquery -->
+        <script src='https://d3js.org/d3.v5.min.js' charset='utf-8'></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="libraries/canvasjs.min.js"></script>
+        
+        <!-- <script src="count.js"></script> -->
+        <script src="js/waffle.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class="flex-grid"> 
+                <div id="count">
+                    <div id="deathNum"> </div>
+                    <p class="info">  total deaths </p>
+                    <ul id="legend"></ul>
+                </div>
+                
+                <div class="chart">
+                    <p class="label"> Racial Breakdown of Coronavirus Deaths in New York City </p>
+                </div>
+
+            </div>
+        </div>
+        
+
+    </body>
+
+    <script type="text/javascript">
+        const byRaceUrl = "https://raw.githubusercontent.com/nychealth/coronavirus-data/3f21405a00bf7c93db5a5209b44886882feb30a6/by-race.csv"
+
+        d3.csv(byRaceUrl)
+            .then(totalCount);
+
+        function totalCount(dataset) {
+            const totalDeaths = d3.sum(dataset.map(function(d){ return d.DEATH_COUNT}));
+            console.log(totalDeaths)
+            d3.select("div#deathNum")
+            .append("span")
+            .attr("class", "deathCountText")
+            .text(totalDeaths)
+        }
+// add counts of the races to below the total count 
+// maybe move legend to the left actually, under the thing and then add the #people with it
+        d3.csv(byRaceUrl)
+            .then(raceChart);
+        
+        const div = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
+
+        function raceChart(data) {
+            var waffle = new WaffleChart()
+            .selector(".chart")
+            .data(data)
+            .useWidth(false)
+            .label("Coronavirus deaths by race")
+            .size(15)
+            .gap(1)
+            .rows(20)
+            .columns(50)
+            .rounded(true)();
+        }
+        
+    </script>
+
+
+</html>
+

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: "Noto Serif", serif;
+	color: #fff;
+	background-color: #0F1116;
+  }
+
+html, body{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	position: absolute;
+  }
+.flex-grid{
+	max-width: 100%;
+	display: grid;
+	grid-gap: 1rem;
+	grid-column-end: span 1;
+	padding: 15px;
+}
+
+.chart {
+	margin: 0 auto;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.1);
+	width: 100%;
+	height: auto;
+}
+svg.waffle.svg-container {
+	height: 100%;
+	width: 100%;
+}
+
+p.label {
+	font-size: 1.5rem;
+	/* font-weight: bold; */
+	text-align: center;
+	padding: 0 0 5px 0;
+	margin: 0;
+	font-family: 'Merriweather';
+}
+
+
+#count {
+	width: 100%;
+	height: auto;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+#deathNum, p.info{
+	/* text-align:center; */
+	display:block;
+	margin: 0;
+	padding-left: 40px;
+}
+.deathCountText {
+	font-size: 3em;
+	font-weight: bold;
+}
+p.info {
+	font-size: 1.3em;
+	font-weight: lighter;
+	text-transform: uppercase;
+	color: rgb(190, 190, 190);
+}
+
+.svg-container {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	vertical-align: top;
+	overflow: hidden;
+  }
+.svg-content-responsive {
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	left: 0;
+  }
+  
+svg .rect {
+	fill: gold;
+	stroke: steelblue;
+	stroke-width: 5px;
+  }
+
+
+ul#legend {
+	/* display: inline; */
+	list-style: none;
+}
+div.legend_item {
+	display: list-item;
+	padding-bottom: 10px;
+}
+.legend_item .rect{
+	border-radius: 50%;
+}
+span.legend_item_text {
+    display: inline-block;
+	margin-right: 10px;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+}
+span.legend_item_subtitle {
+	font-size: .8em;
+	font-weight: lighter;
+	color:rgb(178, 189, 189);
+}
+/* 
+.waffle-chart-legend--items:last-child .waffle-chart-legend--text:after {
+  content: " *";
+} */
+
+@keyframes fadeGraphTextIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.rect {
+	width: 20px;
+	float: left;
+	margin-right: 10px;
+}
+
+.rightContainer {
+	display: block;
+}
+
+div.tooltip { 
+	color: rgb(214, 214, 214);
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+	font-size: 1rem;
+	font-style: italic;
+    font-weight: 800;
+    text-transform: capitalize;
+    background: rgba(20, 19, 19, 0.8);
+    pointer-events: none;
+    overflow-x: hidden;
+}
+@media only screen 
+	and (min-width: 600px) {
+	.flex-grid {
+		grid-column-end: span 2;
+		/* grid-column-end: span 3; */
+		grid-auto-flow: column;
+	}
+	svg.waffle.svg-container {
+		height: 100%;
+		width: 100%;
+	}
+  }
