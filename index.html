@@ -17,7 +17,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="libraries/canvasjs.min.js"></script>
         
-        <!-- <script src="count.js"></script> -->
         <script src="js/waffle.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -56,8 +55,8 @@
             .attr("class", "deathCountText")
             .text(totalDeaths)
         }
-// add counts of the races to below the total count 
-// maybe move legend to the left actually, under the thing and then add the #people with it
+
+
         d3.csv(byRaceUrl)
             .then(raceChart);
         
